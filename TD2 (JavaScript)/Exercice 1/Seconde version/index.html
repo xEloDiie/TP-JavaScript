@@ -1,35 +1,43 @@
+<!-- Même chose que le fichier dans "Première version" sauf bouton Ok retiré -->
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Convertisseur</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <table border="2">
-    <thead>
-      <tr>
-        <th colspan="3" id="titre">Convertisseur</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><img src="../images/euro.png" alt="Euro" id="euro" width="50px"></td>
-        <td>Euros</td>
-        <td><input type="number" id="euros"></td>
-      </tr>
-      <tr>
-        <td><img src="../images/usd.png" alt="USD" width="50px"></td>
-        <td>Dollar Américain</td>
-        <td><input type="number" id="usd" disabled></td>
-      </tr>
-      <tr>
-        <td><img src="../images//aud.png" alt="AUD" width="70px"></td>
-        <td>Dollar Australien</td>
-        <td><input type="number" id="aud" disabled></td>
-      </tr>
-    </tbody>
-  </table>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Convertisseur</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+  </head>
+  <body>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th colspan="3" id="titre">Convertisseur</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><img src="../images/euro.png" alt="Euro" id="euro" width="50px"></td>
+          <td>Euros</td>
+          <td><input type="number" id="euros"></td>
+        </tr>
+
+        <tr>
+          <td><img src="../images/usd.png" alt="USD" width="50px"></td>
+          <td>Dollar Américain</td>
+          <td><input type="number" id="usd" disabled></td>
+        </tr>
+
+        <tr>
+          <td><img src="../images/aud.png" alt="AUD" width="70px"></td>
+          <td>Dollar Australien</td>
+          <td><input type="number" id="aud" disabled></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script src="script.js"></script>
+
+  </body>
 </html>

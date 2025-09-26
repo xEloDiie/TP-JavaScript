@@ -2,36 +2,58 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8">
-    <title>Convertisseur</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Convertisseur</title> <!-- Titre affiché sur l’onglet du navigateur -->
+    <link rel="stylesheet" href="../CSS/style.css"> <!-- Rattacher la page web à un fichier CSS -->
   </head>
   <body>
-    <table border="2">
+    <!-- Création d'un tableau de cellules avec une bordure de 1px -->
+    <table border="1">
       <thead>
         <tr>
+          <!-- Cellule fusionnée sur 3 colonnes pour afficher le titre -->
           <th colspan="3" id="titre">Convertisseur</th>
         </tr>
       </thead>
+
       <tbody>
+        
+        <!-- Première ligne : saisie des euros -->
         <tr>
+          <!-- Logo de l’euro -->
           <td><img src="../images/euro.png" alt="Euro" id="euro" width="50px"></td>
+          <!-- Nom de la devise -->
           <td>Euros</td>
+          <!-- Champ de saisie pour entrer un montant en euros -->
           <td><input type="number" id="euros"></td>
         </tr>
+
+        <!-- Deuxième ligne : affichage en dollars américains -->
         <tr>
+          <!-- Logo du dollar américain -->
           <td><img src="../images/usd.png" alt="USD" width="50px"></td>
+          <!-- Nom de la devise -->
           <td>Dollar Américain</td>
+          <!-- Champ affichant la conversion (désactivé car calculé automatiquement) -->
           <td><input type="number" id="usd" disabled></td>
         </tr>
+
+        <!-- Troisième ligne : affichage en dollars australiens -->
         <tr>
+          <!-- Logo du dollar australien -->
           <td><img src="../images/aud.png" alt="AUD" width="70px"></td>
+          <!-- Nom de la devise -->
           <td>Dollar Australien</td>
+          <!-- Champ affichant la conversion (désactivé car calculé automatiquement) -->
           <td><input type="number" id="aud" disabled></td>
         </tr>
       </tbody>
     </table>
     <br>
+
+    <!-- Bouton pour convertir via la fonction associée dans le JS -->
     <button onclick="convertir()" id="bouton">Convertir</button>
+
+    <!-- Rattacher la page web à un fichier JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>

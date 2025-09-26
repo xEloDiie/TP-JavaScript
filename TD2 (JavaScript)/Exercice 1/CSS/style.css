@@ -1,0 +1,16 @@
+/* Table */
+table {
+    text-align: center; /* Champs des cellules centrées au milieu */
+}
+
+/* Titre du tableau ("Convertisseur") */
+#titre {
+  background-color: #181818;
+  color: white;
+}
+
+/* Bouton "Convertir" */
+#bouton {
+    border: 2px solid black;
+    border-radius: 3px;
+}
