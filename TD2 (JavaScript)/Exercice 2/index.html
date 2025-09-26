@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>TP-JavaScript</title> <!-- Titre affiché dans l'onglet du navigateur -->
+        <link rel="stylesheet" href="styles.css"> <!-- Rattacher la page web à un fichier CSS -->
+    </head>
+    <body>
+        <!-- Menu principal avec 3 cases à cocher -->
+        <div id="menu">
+            <h2>Menu</h2>
+            <!-- Case pour afficher/masquer la section Lien et images -->
+            <label><input type="checkbox" id="toggleHeader"> Afficher la section Lien et images</label><br>
+            <!-- Case pour afficher/masquer le formulaire -->
+            <label><input type="checkbox" id="toggleBody"> Afficher le formulaire</label><br>
+            <!-- Case pour afficher/masquer les barres de progression -->
+            <label><input type="checkbox" id="toggleFooter"> Afficher barres de progression</label><br>
+            <hr> <!-- Balise pour créer un séparateur -->
+        </div>
+
+        <!-- Section 1 : Lien et images -->
+        <div id="Section1" class="hidden"> <!-- Masquée au départ -->
+            <header>
+                <h1>Lien et images</h1>
+                <div id="LienEtImages">
+                    <!-- Lien vers Wikipédia (sera modifié en version française dans le JS) -->
+                    <a href="https://wikipedia.org" target="_blank">La page principale de Wikipedia</a><br>
+                    <!-- Image Google -->
+                    <img src="images/Google.png" alt="Google" id="google"><br>
+                </div>
+                <hr>
+            </header>
+        </div>
+
+        <!-- Section 2 : Formulaire -->
+        <div id="Section2" class="hidden"> <!-- Masquée au départ -->
+            <form action="traitement.php" method="POST"> <!-- Envoi des données vers "traitement.php" (non existant, juste pour le test) en méthode POST -->
+                <h1>Des éléments !</h1>
+
+                <!-- Champ de texte -->
+                <input type="text" name="champ" required placeholder="Premiers pas avec Javascript" id="champ"><br><br>
+
+                <!-- Trois choix (bouttons radio) -->
+                <input type="radio" name="choix" value="c1" id="c1"/>Choix N°1
+                <input type="radio" name="choix" value="c2" id="c2"/>Choix N°2
+                <input type="radio" name="choix" value="c3" id="c3"/>Choix N°3
+                <br><br>
+
+                <!-- Champ de texte pour le mot de passe -->
+                <input type="password" name="login" value="password"/>
+                <br><br>
+
+                <!-- Slider pour le volume -->
+                <input type="range" id="volume" name="volume" min="0" max="100" value="50" oninput="afficherVolume(this)">Volume<br>
+                <!-- Affichage sous forme de texte de la valeur du slider -->
+                <span id="valeurVolume">50</span><br><br>
+
+                <!-- Case à cocher -->
+                <label for="mute">Une case à cocher</label>
+                <input type="checkbox" name="mute" id="checkbox"/>
+                <br><br>
+
+                <!-- Sélecteur de date -->
+                <label for="date">Date :</label>
+                <input type="date" name="dn" required/><br><br>
+
+                <!-- Bouton de validation du formulaire -->
+                <input type="submit" value="Ok"/><br>
+                <hr>
+            </form>
+        </div>
+
+        <!-- Section 3 : barres de progression -->
+        <div id="Section3" class="hidden"> <!-- Masquée au départ -->
+            <footer>
+                <h1>Barres de progression</h1>
+
+                <!-- Barre de progression du téléchargement -->
+                <label for="download">Téléchargement en cours :</label>
+                <progress id="barreProgression" value="50" min="0" max="100"></progress>
+                <span id="download"></span><br><br>
+
+                <!-- Barre de progression d'espace disponible -->
+                <label for="ed">Espace disponible :</label>
+                <meter id="ed" value="50" min="0" max="100" high="70" low="50" optimum="30"></meter>
+                <span id="ed_value"></span><br>
+                <hr>
+            </footer>
+        </div>
+
+        <!-- Rattacher la page web à un fichier JavaScript -->
+        <script src="script.js"></script>
+    </body>
+</html>

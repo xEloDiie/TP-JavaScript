@@ -1,0 +1,20 @@
+/* Cacher les sections */
+.hidden {
+  display: none;
+}
+
+/* Redimensionnement de l'image Google */
+#google {
+  width: 200px;
+  margin-top: 20px;
+}
+
+/* Modification de l'épaisseur de la séparation */
+hr {
+  border: black solid 1px;
+}
+
+/* Augmentation de la taille de l'input champ de texte */
+#champ {
+  width: 200px;
+}
