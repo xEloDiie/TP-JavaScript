@@ -19,6 +19,7 @@ Cette page GitHub constitue un TP à rendre sur le JavaScript pour le cours de H
 
 2. Ouvrir le fichier `index.html` dans n'importe quel navigateur (Chrome, Firefox, Edge…).
 
+---
 
 ## Structure du site
 
