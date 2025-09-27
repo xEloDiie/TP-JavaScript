@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="UTF-8"/>
 		<title>TP-JavaScript</title> <!-- Titre affiché sur l’onglet du navigateur -->
-		<link rel="stylesheet" href="styles.css"> <!-- Rattacher la page web à un fichier CSS -->
+		<link rel="stylesheet" href="styles.css"/> <!-- Rattacher la page web à un fichier CSS -->
 	</head>
 	<body>
 		<!-- Menu principal avec 3 cases à cocher -->
@@ -24,9 +24,9 @@
 				<h1>Lien et images</h1>
 				<div id="LienEtImages">
 					<!-- Lien vers Wikipédia (sera modifié en version française dans le JS) -->
-					<a href="https://wikipedia.org" target="_blank">La page principale de Wikipedia</a><br>
+					<a href="https://wikipedia.org" target="_blank">La page principale de Wikipedia</a><br><br>
 					<!-- Image Google -->
-					<img src="images/Google.png" alt="Google" id="google"><br>
+					<img src="images/Google.png" alt="Google" id="google"/><br>
 				</div>
 				<hr>
 			</header>
@@ -34,20 +34,20 @@
 
 		<!-- Section 2 : Formulaire -->
 		<div id="Section2" class="hidden"> <!-- Masquée au départ -->
-			<form action="traitement.php" method="POST"> <!-- Envoi des données vers "traitement.php" (non existant, juste pour le test) en méthode POST -->
+			<form> <!-- Création d'une balise formulaire -->
 				<h1>Des éléments !</h1>
 
 				<!-- Champ de texte -->
-				<input type="text" name="champ" required placeholder="Premiers pas avec Javascript" id="champ"><br><br>
+				<input type="text" name="champ" placeholder="Premiers pas avec Javascript" id="champ"><br><br>
 
 				<!-- Trois choix (bouttons radio) -->
-				<input type="radio" name="choix" value="c1" id="c1"/>Choix N°1
-				<input type="radio" name="choix" value="c2" id="c2"/>Choix N°2
-				<input type="radio" name="choix" value="c3" id="c3"/>Choix N°3
+				<input type="radio" name="choix" value="1" id="c1"/>Choix N°1
+				<input type="radio" name="choix" value="2" id="c2"/>Choix N°2
+				<input type="radio" name="choix" value="3" id="c3"/>Choix N°3
 				<br><br>
 
 				<!-- Champ de texte pour le mot de passe -->
-				<input type="password" name="login" value="password"/>
+				<input type="password" name="login" placeholder="Mot de passe" value="password" required/>
 				<br><br>
 
 				<!-- Slider pour le volume -->
@@ -62,7 +62,7 @@
 
 				<!-- Sélecteur de date -->
 				<label for="date">Date :</label>
-				<input type="date" name="dn" required/><br><br>
+				<input type="date" name="dn"/><br><br>
 
 				<!-- Bouton de validation du formulaire -->
 				<input type="submit" value="Ok"/><br>
@@ -82,7 +82,7 @@
 
 				<!-- Barre de progression d'espace disponible -->
 				<label for="ed">Espace disponible :</label>
-				<meter id="ed" value="50" min="0" max="100" high="70" low="50" optimum="30"></meter>
+				<meter id="ed" value="50" min="0" max="100" high="70" low="50" optimum="30">
 				<span id="ed_value"></span><br>
 				<hr>
 			</footer>

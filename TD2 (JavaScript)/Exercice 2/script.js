@@ -7,25 +7,24 @@ const lienWiki = document.querySelector('a[href="https://wikipedia.org"]');
 lienWiki.href = "https://fr.wikipedia.org";
 
 
-// Ouverture du site si "oui" d'entré, sinon ne pas ouvrir le lien
+// Envoi du formulaire si "oui" ou "non" d'entré
 
-// Sélection des éléments
-const inputText = document.querySelector('#champ');   
+// On sélectionne le formulaire et l'input champ de texte
+const formulaire = document.querySelector('form'); // On cible le formulaire
+const inputText = document.querySelector('#champ'); // On cible le champ texte
 
-// Vérification lors du clic sur le lien
-lienWiki.addEventListener('click', function(event) {
-    const valeur = inputText.value.toLowerCase().trim(); // transforme en minuscules et supprime les espaces
+// On écoute sur la page dès que le bouton submit dans le formulaire a été pressé pour lancer la fonction
+formulaire.addEventListener('submit', function(event) {
+    const valeur = inputText.value.toLowerCase().trim(); // Transformer la valeur entrée dans le champ en minuscules + sans espaces
 
-    if (valeur === "oui") {
-        // tout est correct, la page s'ouvrira normalement
-    } 
-    else if (valeur === "non") {
-        event.preventDefault(); // empêche la navigation
-        alert("Vous avez entré Non, la page ne va pas s'ouvrir !");
-    } 
-    else {
-        event.preventDefault(); // empêche la navigation
-        alert("Il faut répondre par Oui ou Non !");
+    if (valeur === "oui" || valeur === "non") { // On regarde si c'est bien oui ou non
+        // Si c'est oui, le formulaire peut s’envoyer
+        alert("Le formulaire a bien été envoyé !");
+    } else { // Sinon
+        // On bloque l’envoi
+        event.preventDefault();
+        inputText.value = ""; // On vide le champ
+        inputText.placeholder = "Il faut mettre Oui ou Non"; // Message d’erreur dans l'étiquette
     }
 });
 
@@ -40,7 +39,7 @@ const radio3 = document.querySelector('#c3');
 // On modifie le nom de chacun
 radio1.nextSibling.textContent = "HP ";
 radio2.nextSibling.textContent = "Casque ";
-radio3.nextSibling.textContent = "Bluetooth ";;
+radio3.nextSibling.textContent = "Bluetooth ";
 
 
 // Modification du texte de volume pour chaque périphérique 
@@ -53,9 +52,9 @@ for (let i = 0; i < radios.length; i++) {
     radios[i].onclick = function() {
         const volumeLabel = volumeInput.nextSibling; // le texte "Volume"
 
-        if (this.value === "c1") volumeLabel.textContent = "Volume HP";
-        else if (this.value === "c2") volumeLabel.textContent = "Volume Casque";
-        else if (this.value === "c3") volumeLabel.textContent = "Volume Bluetooth";
+        if (this.value === "1") volumeLabel.textContent = "Volume HP";
+        else if (this.value === "2") volumeLabel.textContent = "Volume Casque";
+        else if (this.value === "3") volumeLabel.textContent = "Volume Bluetooth";
     };
 }
 
@@ -113,16 +112,16 @@ caseMute.addEventListener('change', function() {
 // Ajout d'une image
 
 // Créer l'image et la récupérer
-const nouvelleImage = document.createElement('img');
-nouvelleImage.src = "https://upload.wikimedia.org/wikipedia/commons/b/bd/UPHF_logo.svg";
-nouvelleImage.width = 200; // largeur en pixels (par défaut)
-nouvelleImage.alt = "Logo UPHF";
+const imageUPHF = document.createElement('img');
+imageUPHF.src = "https://upload.wikimedia.org/wikipedia/commons/b/bd/UPHF_logo.svg";
+imageUPHF.width = 280; // largeur en pixels (par défaut)
+imageUPHF.alt = "Logo UPHF";
 
 // Sélectionner la section "Lien et images"
 const sectionLien = document.getElementById('LienEtImages');
 
 // Ajouter l'image à la fin de la section
-sectionLien.appendChild(nouvelleImage);
+sectionLien.appendChild(imageUPHF);
 
 
 // Ajout d'un menu toggle
