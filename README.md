@@ -5,18 +5,6 @@ Cette page GitHub constitue un TP à rendre sur le JavaScript pour le cours de H
 
 ---
 
-## Structure du site
-
-```
-/TP-JavaScript 
-│── /images           # Image(s) utilisée(s)
-│── index.html        # Page HTML
-│── script.js         # Code JavaScript
-│── styles.css        # Styles CSS
-```
-
----
-
 ## Installation
 1. Télécharger ou cloner ce dépôt :  
    ```bash
