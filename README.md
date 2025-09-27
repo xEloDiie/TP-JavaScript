@@ -1,7 +1,7 @@
 # TP-JavaScript - Elodie DECRAIE
 
 ## Description
-Cette page GitHub constitue un TP à rendre sur JavaScript pour le cours de HTML à l'INSA UPHF pour l'année 2025-2026 en 3ème année de Licence Informatique avec Mr. TOMCZAK.
+Cette page GitHub constitue un TP à rendre sur le JavaScript pour le cours de HTML à l'INSA UPHF pour l'année 2025-2026 en 3ème année de Licence Informatique avec Mr. TOMCZAK.
 
 ---
 
@@ -21,8 +21,10 @@ Cette page GitHub constitue un TP à rendre sur JavaScript pour le cours de HTML
 
 
 ## Structure du site
+
+```
 /TP-JavaScript
-│── index.html        # Page principale
+│── /images           # Image(s) utilisée(s)
+│── index.html        # Page HTML
 │── script.js         # Code JavaScript
 │── styles.css        # Styles CSS
-│── /images           # Images utilisées (Google.png, icônes…)
