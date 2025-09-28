@@ -15,7 +15,7 @@ const inputText = document.querySelector('#champ'); // On cible le champ texte
 
 // On écoute sur la page dès que le bouton submit dans le formulaire a été pressé pour lancer la fonction
 formulaire.addEventListener('submit', function(event) {
-    const valeur = inputText.value.toLowerCase().trim(); // Transformer la valeur entrée dans le champ en minuscules + sans espaces
+    const valeur = inputText.value.toLowerCase().trim(); // Transformer la valeur entrée en minuscules + sans espaces
 
     if (valeur === "oui" || valeur === "non") { // On regarde si c'est bien oui ou non
         // Si c'est oui, le formulaire peut s’envoyer
@@ -44,6 +44,8 @@ radio3.nextSibling.textContent = "Bluetooth ";
 
 // Modification du texte de volume pour chaque périphérique 
 
+// Sélection de l'input du volume
+const volumeInput = document.querySelector('#volume');
 // Sélection de tous les inputs radio du groupe "choix"
 const radios = document.querySelectorAll('input[name="choix"]');
 
@@ -60,9 +62,6 @@ for (let i = 0; i < radios.length; i++) {
 
 
 // Modification du max du volume
-
-// Sélection de l'input du volume
-const volumeInput = document.querySelector('#volume');
 
 // Sélection de la valeur (texte) du volume
 const valeurVolume = document.getElementById('valeurVolume');
@@ -126,55 +125,69 @@ sectionLien.appendChild(imageUPHF);
 
 // Ajout d'un menu toggle
 
-// Tableau avec les sections de la page web reliées à leur coche correspondante
-const sections = [
-    { checkboxId: "toggleHeader", sectionId: "Section1" },
-    { checkboxId: "toggleBody", sectionId: "Section2" },
-    { checkboxId: "toggleFooter", sectionId: "Section3" }
-];
+// Au démarrage de la page
+document.addEventListener("DOMContentLoaded", function() {
+    // Création du conteneur principal du menu
+    const menu = document.createElement("div");
+    menu.id = "menu";
 
-// Boucle sur tous les "couples" dans le tableau
-for (let i = 0; i < sections.length; i++) {
-    const checkbox = document.getElementById(sections[i].checkboxId);
-    const section = document.getElementById(sections[i].sectionId);
+    // Ajout d'un titre "Menu"
+    const titre = document.createElement("h2");
+    titre.textContent = "Menu";
+    menu.appendChild(titre);
 
-    // Vérifier que les cases et sections existent
-    if (checkbox && section) {
-        // Cacher la section au départ et décocher la case pour être sûr
-        section.style.display = "none";
+    // Tableau avec les sections de la page web reliées à leur coche correspondante
+    const sections = [
+        { id: "toggleHeader", texte: "Afficher la section Lien et images", sectionId: "Section1" },
+        { id: "toggleBody", texte: "Afficher le formulaire", sectionId: "Section2" },
+        { id: "toggleFooter", texte: "Afficher barres de progression", sectionId: "Section3" }
+    ];
+
+    // Boucle classique pour créer chaque case et gérer son lien avec une section
+    for (let i = 0; i < sections.length; i++) {
+        const item = sections[i];
+
+        // Création d'un label contenant une case et du texte
+        const label = document.createElement("label");
+
+        // Création de la case à cocher
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = item.id;
+
+        // Forcer le décochage de la case dès le départ
         checkbox.checked = false;
 
-        // Listener si coché ou décoché
-        checkbox.addEventListener("change", function () {
-            // Afficher ou non en conséquence
+        // Insertion de la case et du texte dans le label
+        label.appendChild(checkbox);
+        label.append(" " + item.texte);
+
+        // Ajout du label au menu
+        menu.appendChild(label);
+        menu.appendChild(document.createElement("br"));
+
+        // Récupération de la section correspondante
+        const section = document.getElementById(item.sectionId);
+
+        // Cacher la section au démarrage
+        section.style.display = "none";
+
+        // Ajout d'un listener sur la case pour afficher/masquer la section
+        checkbox.addEventListener("change", function() {
             if (checkbox.checked) {
-                section.style.display = "block";
+                section.style.display = "block"; // afficher la section
             } else {
-                section.style.display = "none";
+                section.style.display = "none"; // cacher la section
             }
         });
     }
-};
 
-// Callback de démarrage (inutile ici car le navigateur reset la page à chaque réactualisation)
-function initMenu() {
-    // Tableau contenant les 3 cases à cocher du menu
-    const toggles = ["toggleHeader", "toggleBody", "toggleFooter"];
+    // Ajout d'une ligne de séparation en bas du menu
+    menu.appendChild(document.createElement("hr"));
 
-    // Boucle sur chaque élément du tableau
-    for (let i = 0; i < toggles.length; i++) {
-
-        // Récupère la checkbox correspondante via son id
-        const checkbox = document.getElementById(toggles[i]);
-        // Si les cases existent
-        if (checkbox) {
-            checkbox.checked = false; // Les décocher d'entrée de jeu
-        }
-    }
-}
-
-// Exécution au démarrage
-initMenu();
+    // Ajout du menu au tout début du body
+    document.body.insertBefore(menu, document.body.firstChild);
+});
 
 
 // Afficher l'année dans la console 
@@ -207,12 +220,12 @@ espDisp.value = valEspDisp;
 
 // Fonction pour incrémenter de 5% toutes les secondes
 const progression = setInterval(function() {
-    if (valBarreProgression < 100) {
-        valBarreProgression += 5;
-        valEspDisp += 5;
-        barreProgression.value = valBarreProgression;
-        espDisp.value = valEspDisp;
+    if (valBarreProgression < 100 && valEspDisp < 100) { // Si la valeur de progression des deux barres sont en-dessous de 100%
+        valBarreProgression += 5; // La progression de la première barre augmente de 5
+        valEspDisp += 5; // De même pour la deuxième 
+        barreProgression.value = valBarreProgression; // On met à jour le pourcentage actuel de la première barre
+        espDisp.value = valEspDisp; // De même pour la deuxième
     } else {
-        clearInterval(progression); // stop à 100%
+        clearInterval(progression); // Stop à 100%
     }
 }, 1000); // 1000ms = 1s

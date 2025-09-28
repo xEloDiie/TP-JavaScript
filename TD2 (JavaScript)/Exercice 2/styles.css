@@ -1,8 +1,3 @@
-/* Cacher les sections */
-.hidden {
-  display: none;
-}
-
 /* Redimensionnement de l'image Google */
 #google {
   width: 270px;
