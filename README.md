@@ -8,7 +8,7 @@ Cette page GitHub constitue un TP à rendre sur le JavaScript pour le cours de H
 ## Installation
 1. Télécharger ou cloner ce dépôt :  
    ```bash
-   git clone https://github.com/xEloDiie/TP-TechologiesWeb.git
+   git clone https://github.com/xEloDiie/TP-JavaScript.git
 
 2. Ouvrir le fichier `index.html` grâce à n'importe quel navigateur internet.
    
