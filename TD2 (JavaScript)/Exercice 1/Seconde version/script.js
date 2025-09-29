@@ -21,6 +21,6 @@ function convertir() {
     let DAU = euros * tauxAUD;
 
     // Afficher les résultats dans les champs correspondants
-    document.getElementById("usd").value = DUS.toFixed(2); // Le nombre entre parenthèses correspond aux chiffres après la virgule qui seront affichés
-    document.getElementById("aud").value = DAU.toFixed(2);
+    document.getElementById("usd").value = DUS.toFixed(2); // Le nombre entre parenthèses correspond aux
+    document.getElementById("aud").value = DAU.toFixed(2); // chiffres après la virgule qui seront affichés
 }
